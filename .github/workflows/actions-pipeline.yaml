@@ -25,3 +25,7 @@ jobs:
           python-version: '${{ matrix.python-version }}'
       - name: Display Python version
         run: python --version
+      - name: Install 'wheel' package from secret
+        run: pip install '${{ secrets.PACKAGE_NAME }}'
+      - name: do pip list
+        run: pip list | grep wheel
